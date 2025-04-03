@@ -13,7 +13,7 @@ def main():
     clock = pygame.time.Clock()
     print(clock)
     dt = 0
-    
+    asteroid_group = pygame.sprite.Group() 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
@@ -24,8 +24,15 @@ def main():
     Shot.containers = (updatable, drawable, shots)
 
     player = Player(x = SCREEN_WIDTH/2, y =SCREEN_HEIGHT/2)
-    asteroid_field = AsteroidField()
-    
+    asteroid_field = AsteroidField(asteroid_group)
+   #
+   # all_sprites = pygame.sprite.Group()
+# asteroids_group = pygame.sprite.Group()
+
+# # Create an AsteroidField instance
+# asteroid_field = AsteroidField(asteroids_group)
+# all_sprites.add(asteroid_field)
+ 
     while(True): 
         for event in pygame.event.get(): 
             if event.type == pygame.QUIT: 
